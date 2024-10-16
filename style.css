@@ -19,8 +19,6 @@ header {
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
-    /* Add the animation only to the header */
-    animation: headerGlow 2s infinite;
 }
 
 header nav ul {
@@ -38,19 +36,6 @@ header nav ul li a {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-/* Animation specifically for the header */
-@keyframes headerGlow {
-    0% {
-        box-shadow: 0 0 5px #4A90E2;
-    }
-    50% {
-        box-shadow: 0 0 20px #4A90E2, 0 0 40px #4A90E2, 0 0 60px #4A90E2;
-    }
-    100% {
-        box-shadow: 0 0 5px #4A90E2;
-    }
 }
 
 section {
@@ -172,7 +157,6 @@ h2:hover {
     }
 }
 
-/* Button styling */
 button {
     background-color: #0A192F;
     color: white;
@@ -186,4 +170,53 @@ button {
 
 button:hover {
     background-color: #4A90E2;
+}
+
+/* Navbar styling */
+.navbar {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #0A192F;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    animation: pulse 1.5s infinite; /* Adding the pulse animation */
+}
+
+.navbar ul li a:hover {
+    background-color: #4A90E2;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(74, 144, 226, 0.7), 0 0 20px rgba(74, 144, 226, 0.7);
+    }
+    50% {
+        transform: scale(1.05); /* Slightly enlarge */
+        box-shadow: 0 0 20px rgba(74, 144, 226, 0.9), 0 0 30px rgba(74, 144, 226, 0.9);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(74, 144, 226, 0.7), 0 0 20px rgba(74, 144, 226, 0.7);
+    }
 }
