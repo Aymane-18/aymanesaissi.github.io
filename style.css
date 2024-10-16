@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    background-color: #cad4e3; /* Dark blue for the header */
+    background-color: #0A192F; /* Dark blue for the header */
     color: #ffffff;
     padding: 20px 0;
     text-align: center;
@@ -81,7 +81,7 @@ section {
 }
 
 h1, h2 {
-    color: #0A192F; /* Dark blue for text headings */
+    color: #cad4e3; /* Dark blue for text headings */
 }
 
 /* Article section */
