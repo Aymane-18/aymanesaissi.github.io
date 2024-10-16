@@ -129,3 +129,31 @@ h2 {
 h2:hover {
     color: #4A90E2; /* Change color on hover for better user experience */
 }
+
+/* Flexbox for the image container */
+.image-container {
+    display: flex;
+    justify-content: space-between; /* Add some space between the images */
+    gap: 20px; /* Adjusts the gap between the images */
+}
+
+.image-container img {
+    width: 48%; /* Ensures the images take up half the container each */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    border-radius: 8px; /* Optional: adds rounded corners to the images */
+}
+
+/* Ensure images stack vertically on smaller screens */
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column; /* Stacks images vertically */
+        align-items: center; /* Centers images when stacked */
+    }
+
+    .image-container img {
+        width: 100%; /* Make images full width when stacked */
+        margin-bottom: 20px; /* Adds spacing between stacked images */
+    }
+}
+
