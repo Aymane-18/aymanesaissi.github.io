@@ -9,21 +9,20 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
-    padding-bottom: 40px; /* Footer space */
+    background-color: #ffffff; /* White background for most of the body */
+    padding-bottom: 40px; /* Space for the fixed footer */
 }
 
 header {
-    background-color: #005f73;
+    background-color: #0A192F; /* Dark blue for the header */
     color: #ffffff;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
 }
 
 header nav ul {
     list-style-type: none;
-    padding: 0;
 }
 
 header nav ul li {
@@ -40,7 +39,7 @@ header nav ul li a {
 }
 
 section {
-    background-color: #ffffff;
+    background-color: #E6F1FF; /* Light blue for sections */
     padding: 20px;
     margin: 20px;
     border-radius: 8px;
@@ -48,7 +47,7 @@ section {
 }
 
 h1, h2 {
-    color: #333;
+    color: #0A192F; /* Dark blue for text headings */
 }
 
 article {
@@ -56,12 +55,12 @@ article {
 }
 
 article h2 {
-    color: #017888;
+    color: #0A192F; /* Consistent with the header color */
     margin-bottom: 10px;
 }
 
 footer {
-    background-color: #005f73;
+    background-color: #0A192F; /* Matching the header */
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
@@ -75,22 +74,9 @@ footer p {
     font-size: 0.8rem;
 }
 
-/* Responsive typography */
-h1 {
-    font-size: 24px;
-}
-
-h2 {
-    font-size: 20px;
-}
-
-p {
-    font-size: 16px;
-}
-
-/* Add hover effects for links */
+/* Hover effects for links */
 a:hover {
-    color: #02c39a;
+    color: #4A90E2; /* Lighter blue for hover effects */
 }
 
 /* Responsive design for smaller screens */
