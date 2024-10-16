@@ -19,53 +19,70 @@
     </header>
 
     <section id="motor-research">
-        <h2>Condition Monitoring of Induction Motor Using Vibration Signals and Machine Learning Classification</h2>
-        <img src="Cooper Union Poster Template - Landscape.png" alt="Research Poster on Condition Monitoring of Induction Motors" style="width:100%; max-width:800px;">
-        <p><strong>Location:</strong> Technische Universität Dresden, Dresden, Germany</p>
-        <p><strong>Duration:</strong> Summer 2023</p>
-        <p><strong>Role:</strong> Mechatronics Engineering Researcher</p>
-        <p><strong>Project Description:</strong> Led the development and execution of research protocols aimed at enhancing the reliability and performance of electric motors using advanced analytical and machine learning techniques.</p>
-        <ul>
-            <li>Designed experimental setups using SolidWorks to optimize weight distribution and ensure experimental accuracy.</li>
-            <li>Collaborated with cross-functional teams to ensure comprehensive data collection and robust analysis.</li>
-            <li>Developed software tools in Node.js and Node-Red for data processing and user interface improvements, enhancing operational efficiency.</li>
-            <li>Created a pioneering machine learning framework in Python to detect early signs of electric motor failure from vibration data.</li>
-            <li>Contributed to building a predictive model that classifies motor failures, significantly improving reliability and performance metrics.</li>
-            <li>Presented findings at the NCUR conference in Los Angeles on "Condition Monitoring of Induction Motor Using Vibration Signals and Machine Learning Classification".</li>
-        </ul>
+        <h2 onclick="toggleSection('motor-research-content')">Condition Monitoring of Induction Motor Using Vibration Signals and Machine Learning Classification</h2>
+        <div id="motor-research-content" class="content" style="display: none;">
+            <img src="Cooper Union Poster Template - Landscape.png" alt="Research Poster on Condition Monitoring of Induction Motors" style="width:100%; max-width:800px;">
+            <p><strong>Location:</strong> Technische Universität Dresden, Dresden, Germany</p>
+            <p><strong>Duration:</strong> Summer 2023</p>
+            <p><strong>Role:</strong> Mechatronics Engineering Researcher</p>
+            <p><strong>Project Description:</strong> Led the development and execution of research protocols aimed at enhancing the reliability and performance of electric motors using advanced analytical and machine learning techniques.</p>
+            <ul>
+                <li>Designed experimental setups using SolidWorks to optimize weight distribution and ensure experimental accuracy.</li>
+                <li>Collaborated with cross-functional teams to ensure comprehensive data collection and robust analysis.</li>
+                <li>Developed software tools in Node.js and Node-Red for data processing and user interface improvements, enhancing operational efficiency.</li>
+                <li>Created a pioneering machine learning framework in Python to detect early signs of electric motor failure from vibration data.</li>
+                <li>Contributed to building a predictive model that classifies motor failures, significantly improving reliability and performance metrics.</li>
+                <li>Presented findings at the NCUR conference in Los Angeles on "Condition Monitoring of Induction Motor Using Vibration Signals and Machine Learning Classification".</li>
+            </ul>
+        </div>
     </section>
 
     <section id="sumo-robot">
-        <h2>Sumo Robot Project</h2>
-        <img src="front_mechatronics_sumo.png" alt="Sumo Robot" style="width:100%;max-width:400px;">
-        <p><strong>Location:</strong> The Cooper Union, New York, NY</p>
-        <p><strong>Duration:</strong> Spring 2024</p>
-        <p><strong>Description:</strong> Designed a sumo robot capable of competing by adhering to specific design constraints, utilizing CAD tools, and programming with Python.</p>
-        <ul>
-            <li>Integrated IR sensors and solenoids for tactical interactions within the competition arena.</li>
-            <li>Collaborated with a team to optimize mechanical and electronic components.</li>
-            <li>Applied diagnostic skills to troubleshoot and repair system failures.</li>
-        </ul>
+        <h2 onclick="toggleSection('sumo-robot-content')">Sumo Robot Project</h2>
+        <div id="sumo-robot-content" class="content" style="display: none;">
+            <img src="front_mechatronics_sumo.png" alt="Sumo Robot" style="width:100%; max-width:400px;">
+            <p><strong>Location:</strong> The Cooper Union, New York, NY</p>
+            <p><strong>Duration:</strong> Spring 2024</p>
+            <p><strong>Description:</strong> Designed a sumo robot capable of competing by adhering to specific design constraints, utilizing CAD tools, and programming with Python.</p>
+            <ul>
+                <li>Integrated IR sensors and solenoids for tactical interactions within the competition arena.</li>
+                <li>Collaborated with a team to optimize mechanical and electronic components.</li>
+                <li>Applied diagnostic skills to troubleshoot and repair system failures.</li>
+            </ul>
+        </div>
     </section>
 
     <section id="drone-swarm">
-        <h2>Drone Monitoring and Control (Swarm)</h2>
-        <video width="100%" controls>
-            <source src="drone_swarm_video.mp4" type="video/mp4">
-        </video>
-        <p><strong>Location:</strong> Cooper Union, New York, NY</p>
-        <p><strong>Duration:</strong> Fall 2021 - Spring 2022</p>
-        <p><strong>Role:</strong> Student Researcher</p>
-        <p><strong>Project Description:</strong> Implemented a drone swarm control system using ROS, Linux, and Python, enabling synchronized operation of multiple drones for collaborative tasks.</p>
-        <ul>
-            <li>Utilized Vicon cameras and open-source drone technology to monitor and analyze the motion of the drone swarm.</li>
-            <li>Developed algorithms for autonomous decision-making and obstacle avoidance.</li>
-            <li>Performed maintenance and updates on drone hardware and software.</li>
-        </ul>
+        <h2 onclick="toggleSection('drone-swarm-content')">Drone Monitoring and Control (Swarm)</h2>
+        <div id="drone-swarm-content" class="content" style="display: none;">
+            <video width="100%" controls>
+                <source src="drone_swarm_video.mp4" type="video/mp4">
+            </video>
+            <p><strong>Location:</strong> Cooper Union, New York, NY</p>
+            <p><strong>Duration:</strong> Fall 2021 - Spring 2022</p>
+            <p><strong>Role:</strong> Student Researcher</p>
+            <p><strong>Project Description:</strong> Implemented a drone swarm control system using ROS, Linux, and Python, enabling synchronized operation of multiple drones for collaborative tasks.</p>
+            <ul>
+                <li>Utilized Vicon cameras and open-source drone technology to monitor and analyze the motion of the drone swarm.</li>
+                <li>Developed algorithms for autonomous decision-making and obstacle avoidance.</li>
+                <li>Performed maintenance and updates on drone hardware and software.</li>
+            </ul>
+        </div>
     </section>
 
     <footer>
         <p>Copyright © 2024 Aymane Saissi. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleSection(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
