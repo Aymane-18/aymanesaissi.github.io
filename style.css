@@ -96,3 +96,12 @@ a:hover {
         margin: 10px;
     }
 }
+
+/* Video styling for responsiveness */
+video {
+    width: 100%;
+    max-width: 560px; /* Adjust the max-width to fit your design */
+    height: auto;
+    display: block; /* Centers the video in the section */
+    margin: 20px auto; /* Adds space above and below the video */
+}
