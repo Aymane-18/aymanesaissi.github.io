@@ -198,7 +198,7 @@ button:hover {
     font-weight: bold;
     border-radius: 10px; /* Rounded corners */
     transition: background-color 0.3s ease;
-    animation: pulse 3s infinite; /* Pulse animation only on the individual links */
+    animation: pulse 10s infinite; /* Pulse animation only on the individual links */
     box-shadow: 0 0 10px rgba(74, 144, 226, 0.7), 0 0 20px rgba(74, 144, 226, 0.7); /* Shadow applied to buttons */
 }
 
