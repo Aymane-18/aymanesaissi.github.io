@@ -21,23 +21,57 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
 }
 
+/* Navigation styling with box-shaped links */
 header nav ul {
     list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 header nav ul li {
-    display: inline;
-    margin-right: 20px;
+    display: inline-block;
 }
 
 header nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #4A90E2; /* Blue background */
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+header nav ul li a:hover {
+    background-color: #333; /* Dark grey on hover */
+    transform: rotate(2deg) scale(1.05); /* Slight jiggle and zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Different colors for different links */
+nav ul li:nth-child(1) a { /* Home */
+    background-color: #1C1C1C; /* Light black */
+}
+
+nav ul li:nth-child(2) a { /* Projects */
+    background-color: #4A90E2; /* Blue */
+}
+
+nav ul li:nth-child(3) a { /* Contact */
+    background-color: #f0f0f0; /* Light grey */
+    color: #333;
+}
+
+nav ul li a:hover:nth-child(3) { /* Different hover color for the Contact link */
+    background-color: #007acc;
+    color: white;
+}
+
+/* Section styling */
 section {
     background-color: #E6F1FF; /* Light blue for sections */
     padding: 20px;
@@ -50,6 +84,7 @@ h1, h2 {
     color: #0A192F; /* Dark blue for text headings */
 }
 
+/* Article section */
 article {
     margin-bottom: 20px;
 }
@@ -59,6 +94,7 @@ article h2 {
     margin-bottom: 10px;
 }
 
+/* Footer styling */
 footer {
     background-color: #0A192F; /* Matching the header */
     color: #ffffff;
@@ -157,6 +193,7 @@ h2:hover {
     }
 }
 
+/* Button styling */
 button {
     background-color: #0A192F;
     color: white;
