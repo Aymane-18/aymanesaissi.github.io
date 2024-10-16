@@ -159,4 +159,21 @@ h2:hover {
     cursor: pointer;
 }
 
+.poster-container {
+    text-align: center; /* Centers the poster within the section */
+    padding: 10px; /* Adds some space around the poster */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.poster-container img {
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width of the poster */
+    margin: auto; /* Centers the image horizontally */
+    display: block; /* Ensures the image takes up the entire width it's allowed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25); /* Adds a shadow for better focus */
+}
+
+.poster-container:hover {
+    transform: scale(1.05); /* Slightly enlarges the poster on hover */
+}
 
