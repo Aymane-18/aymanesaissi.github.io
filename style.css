@@ -19,51 +19,40 @@ header {
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+    /* Add the animation only to the header */
+    animation: headerGlow 2s infinite;
 }
 
-/* Navigation links styled as buttons */
 header nav ul {
     list-style-type: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 0;
 }
 
 header nav ul li {
     display: inline;
+    margin-right: 20px;
 }
 
 header nav ul li a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 12px 24px;
-    background-color: #0A192F; /* Button background color */
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 6px #004080; /* 3D effect: shadow below */
-    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Smooth transition */
-    position: relative;
-    display: inline-block; /* Make it act like a button */
 }
 
-/* Hover effect: Lift the button */
-header nav ul li a:hover {
-    background-color: #4A90E2; /* Lighter blue on hover */
-    transform: translateY(-3px); /* Lift button on hover */
-    box-shadow: 0 9px #003366; /* Deepen shadow when hovering */
+/* Animation specifically for the header */
+@keyframes headerGlow {
+    0% {
+        box-shadow: 0 0 5px #4A90E2;
+    }
+    50% {
+        box-shadow: 0 0 20px #4A90E2, 0 0 40px #4A90E2, 0 0 60px #4A90E2;
+    }
+    100% {
+        box-shadow: 0 0 5px #4A90E2;
+    }
 }
 
-/* Active (pressed) effect: Pressed down */
-header nav ul li a:active {
-    transform: translateY(3px); /* Move down on click */
-    box-shadow: 0 3px #003366; /* Darker and closer shadow on click */
-}
-
-/* Sections styling */
 section {
     background-color: #E6F1FF; /* Light blue for sections */
     padding: 20px;
@@ -76,7 +65,6 @@ h1, h2 {
     color: #0A192F; /* Dark blue for text headings */
 }
 
-/* Article styling */
 article {
     margin-bottom: 20px;
 }
@@ -101,21 +89,22 @@ footer p {
     font-size: 0.8rem;
 }
 
-/* Hover effects for general links */
+/* Hover effects for links */
 a:hover {
     color: #4A90E2; /* Lighter blue for hover effects */
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-        gap: 10px;
+    header nav ul li {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
     }
 
     header nav ul li a {
-        width: 100%;
-        text-align: center;
+        display: inline-block;
+        padding: 10px;
     }
 
     section {
@@ -141,14 +130,12 @@ img {
     margin: 0 auto; /* Centers the image horizontally */
 }
 
-/* Hide content initially */
 .content {
-    display: none;
+    display: none; /* Hide content initially */
     padding: 10px;
     border-top: 1px solid #ccc; /* Stylistic choice */
 }
 
-/* Clickable headers for toggling sections */
 h2 {
     cursor: pointer; /* Indicates the element is clickable */
     color: #0A192F;
@@ -195,17 +182,8 @@ button {
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
-    box-shadow: 0 6px #004080; /* 3D effect */
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 button:hover {
     background-color: #4A90E2;
-    transform: translateY(-3px);
-    box-shadow: 0 9px #003366;
-}
-
-button:active {
-    transform: translateY(3px);
-    box-shadow: 0 3px #003366;
 }
