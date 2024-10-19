@@ -61,18 +61,13 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
-    color: #000103; /* Dark blue for text headings */
+/* Set different colors for h1 and h2 */
+h1 {
+    color: #cad4e3; /* Bright orange for h1 headings */
 }
 
-/* Article section */
-article {
-    margin-bottom: 20px;
-}
-
-article h2 {
-    color: #0A192F; /* Consistent with the header color */
-    margin-bottom: 10px;
+h2 {
+    color: #3498DB; /* Soft blue for h2 headings */
 }
 
 /* Footer styling */
@@ -123,35 +118,45 @@ video {
     margin: 20px auto; /* Adds space above and below the video */
 }
 
-/* Styling and centering images specifically */
-img {
-    width: 100%; /* Responsive width */
-    max-width: 100%; /* Ensure images never overflow the container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Makes the image a block-level element */
-    margin: 0 auto; /* Centers the image horizontally */
-}
-
-/* Flexbox for the image container */
+/* Image container styling for each project with separate control */
 .image-container {
     display: flex;
-    justify-content: center; /* Center the images within the container */
-    gap: 20px;
-    flex-wrap: wrap; /* Ensures images wrap into new lines if needed */
+    flex-wrap: wrap; /* Wrap images to the next line if needed */
+    justify-content: flex-start; /* Align items at the start of the container */
+    gap: 20px; /* Space between images */
+    margin-bottom: 20px; /* Space between image container and the next section */
 }
 
 /* Specific image size for Motor Research Project */
-#motor-research img {
-    max-width: 800px; /* Keep the image size as is for Motor Research */
-    width: 100%;
+#motor-research .image-container img {
+    width: 100%; /* Full width for single image */
+    max-width: 800px; /* Limit the image width */
+    height: auto;
+    border-radius: 8px;
 }
 
-/* Specific image size for other projects (smaller size) */
-#sumo-robot img,
-#strain-stress-dic img,
-#open-channel-flow img {
-    max-width: 300px; /* Limit the image size for these projects */
+/* Specific image size for Open Channel Flow Project */
+#open-channel-flow .image-container img {
     width: 100%;
+    max-width: 400px; /* Adjust the size for Open Channel Flow */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Specific image size for Sumo Robot Project */
+#sumo-robot .image-container img {
+    width: 100%;
+    max-width: 350px; /* Adjust the size for Sumo Robot */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Specific image size for Strain Stress DIC Project */
+#strain-stress-dic .image-container img {
+    width: 100%;
+    max-width: 300px; /* Adjust the size for Strain Stress DIC */
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Ensure images stack vertically on smaller screens */
