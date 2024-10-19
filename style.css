@@ -81,78 +81,22 @@ section {
 }
 
 h1, h2 {
-    color: #0A192F; /* Dark blue for text headings */
+    color: #cad4e3; /* Dark blue for text headings */
 }
 
-/* Smooth transition for collapsible sections */
-.content {
-    display: none;
-    padding: 10px;
-    border-top: 1px solid #ccc;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out; /* Smooth transition for expanding */
+/* Article section */
+article {
+    margin-bottom: 20px;
 }
 
-.show {
-    display: block;
-    max-height: 1000px; /* Enough height to show content */
-}
-
-/* Flexbox for image container with responsive adjustments */
-.image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px; /* Adjusts the gap between the images */
-}
-
-.image-container img {
-    width: calc(33.33% - 10px); /* Automatically adjusts size based on 3 images */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
-}
-
-@media (max-width: 768px) {
-    .image-container img {
-        width: 100%; /* Full width for smaller screens */
-        margin-bottom: 10px; /* Adds spacing between stacked images */
-    }
-}
-
-/* Video styling for responsiveness */
-video {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-    display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Button styling with jiggle effect */
-button {
-    background-color: #0A192F;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+article h2 {
+    color: #0A192F; /* Consistent with the header color */
     margin-bottom: 10px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-button:hover {
-    background-color: #4A90E2;
-    transform: rotate(2deg) scale(1.05); /* Add jiggle and zoom effect on hover */
 }
 
 /* Footer styling */
 footer {
-    background-color: #0A192F;
+    background-color: #0A192F; /* Matching the header */
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
@@ -161,10 +105,14 @@ footer {
     width: 100%;
 }
 
-/* Footer text */
 footer p {
     margin: 0;
     font-size: 0.8rem;
+}
+
+/* Hover effects for links */
+a:hover {
+    color: #4A90E2; /* Lighter blue for hover effects */
 }
 
 /* Responsive design for smaller screens */
@@ -183,4 +131,68 @@ footer p {
     section {
         margin: 10px;
     }
+}
+
+/* Video styling for responsiveness */
+video {
+    width: 100%;
+    max-width: 560px; /* Adjust the max-width to fit your design */
+    height: auto;
+    display: block; /* Centers the video in the section */
+    margin: 20px auto; /* Adds space above and below the video */
+}
+
+/* Styling and centering images specifically */
+img {
+    width: 100%; /* Responsive width */
+    max-width: 100%; /* Ensure images never overflow the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Makes the image a block-level element */
+    margin: 0 auto; /* Centers the image horizontally */
+}
+
+/* Flexbox for the image container */
+.image-container {
+    display: flex;
+    justify-content: center; /* Center the images within the container */
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures images wrap into new lines if needed */
+}
+
+.image-container img {
+    flex: 1 1 30%; /* Images will take up 30% of the container and wrap */
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover; /* Ensures the image doesn't stretch */
+}
+
+/* Ensure images stack vertically on smaller screens */
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column; /* Stacks images vertically */
+        align-items: center; /* Centers images when stacked */
+    }
+
+    .image-container img {
+        width: 100%; /* Make images full width when stacked */
+        margin-bottom: 20px; /* Adds spacing between stacked images */
+    }
+}
+
+/* Button styling with jiggle effect */
+button {
+    background-color: #0A192F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #4A90E2;
+    transform: rotate(2deg) scale(1.05); /* Add jiggle and zoom effect on hover */
 }
