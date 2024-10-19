@@ -215,8 +215,9 @@ button:hover {
 .project-header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space between title and image */
+    justify-content: flex-start; /* Aligns the title and image on the left */
     gap: 15px; /* Adds space between the title and image */
+    flex-direction: row-reverse; /* Puts the image on the right */
 }
 
 /* Styling the project preview image or GIF */
