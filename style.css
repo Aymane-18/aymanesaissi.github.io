@@ -224,7 +224,6 @@ button:hover {
 .project-preview {
     width: 150px; /* Increase the size of the image */
     height: 120px; /* Keep the height and width consistent */
-    object-fit: cover; /* Ensures the image is cropped to fit the container */
     border-radius: 8px; /* Adds rounded corners for a polished look */
     transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
 }
