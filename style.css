@@ -129,12 +129,10 @@ video {
 
 /* Specific image size for Motor Research Project */
 #motor-research .image-container img {
-    width: 100%; /* Full width for single image */
-    max-width: 400px; /* Adjust the max-width to a more manageable size */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    max-width: 400px; /* Adjust the size for Strain Stress DIC */
+    height: 300px;
     border-radius: 8px;
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
 }
 
 /* Specific image size for Open Channel Flow Project */
