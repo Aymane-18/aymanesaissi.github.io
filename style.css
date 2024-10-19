@@ -113,7 +113,7 @@ a:hover {
 video {
     width: 100%;
     max-width: 560px; /* Adjust the max-width to fit your design */
-    height: auto;
+    height: 400;
     display: block; /* Centers the video in the section */
     margin: 20px auto; /* Adds space above and below the video */
 }
