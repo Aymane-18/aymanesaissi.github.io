@@ -130,16 +130,16 @@ video {
 /* Specific image size for Motor Research Project */
 #motor-research .image-container img {
     width: 100%; /* Full width for single image */
-    max-width: 800px; /* Limit the image width */
-    height: auto;
+    max-width: 400px; /* Limit the image width */
+    height: 400px;
     border-radius: 8px;
 }
 
 /* Specific image size for Open Channel Flow Project */
 #open-channel-flow .image-container img {
     width: 100%;
-    max-width: 400px; /* Adjust the size for Open Channel Flow */
-    height: auto;
+    max-width: 500px; /* Adjust the size for Open Channel Flow */
+    height: 300px;
     border-radius: 8px;
 }
 
@@ -154,8 +154,8 @@ video {
 /* Specific image size for Strain Stress DIC Project */
 #strain-stress-dic .image-container img {
     width: 100%;
-    max-width: 300px; /* Adjust the size for Strain Stress DIC */
-    height: auto;
+    max-width: 400px; /* Adjust the size for Strain Stress DIC */
+    height: 300px;
     border-radius: 8px;
 }
 
