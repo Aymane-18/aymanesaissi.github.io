@@ -210,3 +210,16 @@ button:hover {
     background-color: #4A90E2;
     transform: rotate(2deg) scale(1.05); /* Add jiggle and zoom effect on hover */
 }
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds space between the image and the title */
+}
+
+.project-preview {
+    width: 60px; /* Adjust to fit the desired size */
+    height: auto;
+    border-radius: 8px; /* Optional: adds rounded corners */
+}
+
