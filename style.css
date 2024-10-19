@@ -52,25 +52,6 @@ header nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Different colors for different links */
-nav ul li:nth-child(1) a { /* Home */
-    background-color: #0c5066; /* Light black */
-}
-
-nav ul li:nth-child(2) a { /* Projects */
-    background-color: #4A90E2; /* Blue */
-}
-
-nav ul li:nth-child(3) a { /* Contact */
-    background-color: #f0f0f0; /* Light grey */
-    color: #333;
-}
-
-nav ul li a:hover:nth-child(3) { /* Different hover color for the Contact link */
-    background-color: #007acc;
-    color: white;
-}
-
 /* Section styling */
 section {
     background-color: #E6F1FF; /* Light blue for sections */
@@ -81,7 +62,7 @@ section {
 }
 
 h1, h2 {
-    color: #cad4e3; /* Dark blue for text headings */
+    color: #000103; /* Dark blue for text headings */
 }
 
 /* Article section */
@@ -159,11 +140,18 @@ img {
     flex-wrap: wrap; /* Ensures images wrap into new lines if needed */
 }
 
-.image-container img {
-    flex: 1 1 30%; /* Images will take up 30% of the container and wrap */
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover; /* Ensures the image doesn't stretch */
+/* Specific image size for Motor Research Project */
+#motor-research img {
+    max-width: 800px; /* Keep the image size as is for Motor Research */
+    width: 100%;
+}
+
+/* Specific image size for other projects (smaller size) */
+#sumo-robot img,
+#strain-stress-dic img,
+#open-channel-flow img {
+    max-width: 300px; /* Limit the image size for these projects */
+    width: 100%;
 }
 
 /* Ensure images stack vertically on smaller screens */
