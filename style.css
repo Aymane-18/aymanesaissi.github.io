@@ -222,8 +222,8 @@ button:hover {
 
 /* Styling the project preview image or GIF */
 .project-preview {
-    width: 150px; /* Increase the size of the image */
-    height: 120px; /* Keep the height and width consistent */
+    width: 300px; /* Increase the size of the image */
+    height: 200px; /* Keep the height and width consistent */
     border-radius: 8px; /* Adds rounded corners for a polished look */
     transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
 }
