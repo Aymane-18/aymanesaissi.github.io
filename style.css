@@ -216,7 +216,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Aligns the title and image on the left */
-    gap: 15px; /* Adds space between the title and image */
+    gap: 8px; /* Adds space between the title and image */
     flex-direction: row-reverse; /* Puts the image on the right */
 }
 
