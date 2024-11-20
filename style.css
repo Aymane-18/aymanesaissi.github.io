@@ -130,7 +130,7 @@ video {
 /* Specific image size for Motor Research Project */
 #motor-research .image-container img {
     width: 100%;
-    max-width: 400px; /* Adjust the size for Strain Stress DIC */
+    max-width: 500px; /* Adjust the size for Strain Stress DIC */
     height: 300px;
     border-radius: 8px;
 }
