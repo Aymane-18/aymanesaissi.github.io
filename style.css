@@ -143,6 +143,14 @@ video {
     border-radius: 8px;
 }
 
+/* Specific image size for Autonomous Mobile Robot Project */
+#autonomous-mobile-robot .image-container img {
+    width: 100%;
+    max-width: 500px; /* Adjust the size for Autonomous Mobile Robot */
+    height: 300px;
+    border-radius: 8px;
+}
+
 /* Specific image size for Sumo Robot Project */
 #sumo-robot .image-container img {
     width: 100%;
