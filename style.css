@@ -146,8 +146,8 @@ video {
 /* Specific image size for Autonomous Mobile Robot Project */
 #autonomous-mobile-robot .image-container img {
     width: 100%;
-    max-width: 500px; /* Adjust the size for Autonomous Mobile Robot */
-    height: 300px;
+    max-width: 350px; /* Adjust the size for Autonomous Mobile Robot */
+    height: auto;
     border-radius: 8px;
 }
 
