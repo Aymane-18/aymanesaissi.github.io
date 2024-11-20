@@ -190,10 +190,12 @@ button {
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 button:hover {
     background-color: #4A90E2;
+    color: #fff;
     transform: rotate(2deg) scale(1.05); /* Add jiggle and zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
