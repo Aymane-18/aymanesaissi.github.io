@@ -135,6 +135,14 @@ video {
     border-radius: 8px;
 }
 
+/* Specific image size for Motor Research Project */
+#fixed-wing-drone .image-container img {
+    width: 100%;
+    max-width: 500px; /* Adjust the size for Strain Stress DIC */
+    height: 300px;
+    border-radius: 8px;
+}
+
 /* Specific image size for Open Channel Flow Project */
 #open-channel-flow .image-container img {
     width: 100%;
