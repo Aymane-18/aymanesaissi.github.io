@@ -118,6 +118,22 @@ video {
     margin: 20px auto; /* Adds space above and below the video */
 }
 
+.media-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Adjust spacing between items */
+    margin-top: 20px;
+}
+
+.media-container img, .media-container video {
+    width: 30%; /* Adjust width to fit three items in a row */
+    max-width: 400px; /* Limit size */
+    height: 300px;
+    border-radius: 8px; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a slight shadow */
+}
+
 /* Image container styling for each project with separate control */
 .image-container {
     display: flex;
@@ -135,13 +151,6 @@ video {
     border-radius: 8px;
 }
 
-/* Specific image size for Motor Research Project */
-#fixed-wing-drone .image-container img {
-    width: 100%;
-    max-width: 500px; /* Adjust the size for Strain Stress DIC */
-    height: 300px;
-    border-radius: 8px;
-}
 
 /* Specific image size for Open Channel Flow Project */
 #open-channel-flow .image-container img {
@@ -175,18 +184,7 @@ video {
     border-radius: 8px;
 }
 
-/* Ensure images stack vertically on smaller screens */
-@media (max-width: 768px) {
-    .image-container {
-        flex-direction: column; /* Stacks images vertically */
-        align-items: center; /* Centers images when stacked */
-    }
 
-    .image-container img {
-        width: 100%; /* Make images full width when stacked */
-        margin-bottom: 20px; /* Adds spacing between stacked images */
-    }
-}
 
 /* Button styling with jiggle effect */
 button {
@@ -207,3 +205,4 @@ button:hover {
     transform: rotate(2deg) scale(1.05); /* Add jiggle and zoom effect on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
+
