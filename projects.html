@@ -3,324 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Aymane Saissi</title>
+    <title>Projects — Aymane Saissi</title>
+    <meta name="description" content="Engineering projects by Aymane Saissi: a compressible flashing-flow CFD solver, acoustic panels, drone simulation, published CFD research, autonomous robots, DIC strain analysis, and motor condition monitoring.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Aymane Saissi - Engineering Projects</h1>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="resume.html">Resume</a></li>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a href="index.html" class="brand"><span class="slash">/</span>aymane.saissi<span class="cursor"></span></a>
+            <button class="nav-toggle" aria-label="Toggle menu">menu</button>
+            <ul class="nav-links">
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html" class="active">projects</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li><a href="resume.html">resume</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    <section id="adaptable-acoustic-panel">
-        <h2>Adaptable Acoustic Panel for Dynamic Sound Environments</h2>
-        <button onclick="toggleSection('adaptable-acoustic-panel-content')">Show Details</button>
-        <div id="adaptable-acoustic-panel-content" class="content" style="display: none;">
-            <p><strong>Location:</strong> Cooper Union, New York, NY</p>
-            <p><strong>Duration:</strong> Fall 2024 – Spring 2025</p>
-            <p><strong>Team:</strong> 3 Mechanical Engineers + 1 Architecture Collaborator</p>
-            
-            <h3>Project Overview</h3>
-            <p>Developed a low-cost, tunable acoustic panel to solve a common problem in multipurpose venues: balancing clarity and ambience. The panel combines fiberglass absorption with switchable diffusion to adapt to different acoustic needs—from orchestral performances to spoken word. A custom-built mechanism enables users to rotate between two frequency-specific diffuser profiles.</p>
-            
-            <h3>Engineering Highlights</h3>
-            <ul>
-                <li>Designed and prototyped a binary amplitude diffuser with rotating wooden slats and chain-driven roller assemblies</li>
-                <li>Tested in real-world acoustic environments using RT60 and ISO 17497-2 standards</li>
-                <li>Reduced reverberation by up to 60% in mid frequencies; achieved diffusion coefficients near 0.7—on par with commercial panels</li>
-                <li>Validated Python-based acoustic models (Sabine, Eyring, Hybrid) against experimental data</li>
-                <li>Fabricated components using laser cutting, CNC machining, and hand assembly in a hardware lab</li>
-            </ul>
-    
-            <h3>Skills Used</h3>
-            <ul>
-                <li>Acoustic Engineering & ISO Testing</li>
-                <li>CAD (SolidWorks), Prototyping, and Fabrication</li>
-                <li>Python Programming for Simulation & Data Analysis</li>
-                <li>Team Collaboration with Mechanical & Architectural Designers</li>
-            </ul>
-    
-            <div class="image-container">
-                <img src="panel_front.jpeg" alt="Front View of Acoustic Panel">
-                <img src="diffusion_test.jpeg" alt="Diffusion Testing Setup">
-                <img src="absorption_graph.png" alt="RT60 Experimental vs. Theoretical">
-            </div>
-    
-            <h3>Impact</h3>
-            <p>This project showcases one year of hands-on lab experience applying engineering principles to real-world testing and product design. It bridges architectural form with mechanical function, offering a scalable solution for dynamic sound control in public spaces.</p>
+
+    <main>
+        <section class="section reveal" style="border-bottom:none; padding-bottom:18px;">
+            <span class="kicker">Selected Work</span>
+            <h2>Engineering projects</h2>
+            <p>A mix of research, computation, robotics, and design — click any project to expand the full breakdown. <span style="font-family:var(--mono);font-size:0.82rem;color:var(--text-faint);">[ tap a card to open ]</span></p>
+        </section>
+
+        <section class="projects-list reveal">
+
+            <!-- 01 — CFD Solver -->
+            <article class="project" id="flashing-flow-solver">
+                <div class="project-head">
+                    <span class="project-num">01</span>
+                    <div class="project-title"><h2>2-D Compressible Flashing &amp; Cavitating Flow Solver (IAPWS-95)</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> University of Cambridge, UK</span>
+                            <span><b>dates</b> 2025 – Present</span>
+                            <span><b>role</b> Sole developer · C++17</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>An edge-based finite-volume solver for 2-D viscous compressible flow of water and steam, built from scratch in C++ to study <strong>flash boiling and cavitation</strong> in nozzles. It couples a full real-fluid equation of state with finite-rate phase-change physics and is validated against the Abuaf <strong>BNL-309</strong> flashing-nozzle experiment.</p>
+
+                        <h3>Numerical Methods</h3>
+                        <ul>
+                            <li>Edge-based <strong>Roe</strong> approximate Riemann solver on a median-dual (vertex-centred) control volume</li>
+                            <li>3-tier reconstruction — WENO5 → MUSCL+minmod → 1st-order near boundaries — with JST artificial dissipation</li>
+                            <li>Explicit Jameson 4-stage Runge–Kutta with local time-stepping; optional BDF1/2 dual-time for unsteady runs</li>
+                            <li>Planar and <strong>axisymmetric</strong> geometry; characteristic inlet/outlet, wall, and axis boundary conditions</li>
+                            <li>Optional Spalart–Allmaras turbulence model; OpenMP-parallel hot loops</li>
+                        </ul>
+
+                        <h3>Physical Modeling</h3>
+                        <ul>
+                            <li>Full <strong>IAPWS-95</strong> (Helmholtz free-energy) equation of state for water/steam across all phases, with a tabulated cache for speed</li>
+                            <li>Homogeneous Equilibrium (HEM) and <strong>Homogeneous Relaxation (HRM)</strong> phase-change models — transporting vapour mass fraction and relaxing it toward equilibrium over the Downar–Zapolski timescale</li>
+                            <li>Physics-based interfacial heat-transfer source term driving non-equilibrium evaporation</li>
+                        </ul>
+
+                        <h3>Validation &amp; Results</h3>
+                        <p>Against the BNL-309 converging–diverging nozzle (subcooled water flashing to two-phase), both planar and half-axisymmetric cases flash with void onset at the throat. On the rising limb the half-axisymmetric result tracks the experimental void-fraction data closely. Verified with unit tests for the EOS (17/17) and HRM closure (26/26).</p>
+
+                        <div class="image-container">
+                            <img src="cfd_void_fraction.png" alt="Void fraction: CFD vs BNL-309 experiment" loading="lazy">
+                            <img src="cfd_mach.png" alt="Mach number contour through the nozzle" loading="lazy">
+                            <img src="cfd_phase.png" alt="Phase map showing two-phase region downstream of throat" loading="lazy">
+                            <img src="cfd_pressure.png" alt="Axial pressure: CFD vs experiment with saturation pressure" loading="lazy">
+                        </div>
+
+                        <h3>Stack</h3>
+                        <ul>
+                            <li>C++17, CMake, OpenMP for the solver core</li>
+                            <li>Real-fluid thermodynamics (IAPWS-95), Riemann solvers, finite-rate phase change</li>
+                            <li>Python for case generation, post-processing, and publication-grade contour/validation plots</li>
+                        </ul>
+
+                        <!-- TODO: replace href with the public solver repo URL once published -->
+                        <a class="btn" href="https://github.com/Aymane-18" target="_blank" rel="noopener" style="margin-top:8px;">view code on github <span class="arrow">→</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 02 — Acoustic Panel -->
+            <article class="project" id="adaptable-acoustic-panel">
+                <div class="project-head">
+                    <span class="project-num">02</span>
+                    <div class="project-title"><h2>Adaptable Acoustic Panel for Dynamic Sound Environments</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> Cooper Union, NY</span>
+                            <span><b>dates</b> Fall 2024 – Spring 2025</span>
+                            <span><b>team</b> 3 ME + 1 Architecture</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>Developed a low-cost, tunable acoustic panel to solve a common problem in multipurpose venues: balancing clarity and ambience. The panel combines fiberglass absorption with switchable diffusion to adapt to different acoustic needs — from orchestral performances to spoken word. A custom mechanism lets users rotate between two frequency-specific diffuser profiles.</p>
+
+                        <h3>Engineering Highlights</h3>
+                        <ul>
+                            <li>Designed and prototyped a binary amplitude diffuser with rotating wooden slats and chain-driven roller assemblies</li>
+                            <li>Tested in real-world acoustic environments using RT60 and ISO 17497-2 standards</li>
+                            <li>Reduced reverberation by up to 60% in mid frequencies; achieved diffusion coefficients near 0.7 — on par with commercial panels</li>
+                            <li>Validated Python-based acoustic models (Sabine, Eyring, Fitzroy) against experimental data</li>
+                            <li>Fabricated components using laser cutting, CNC machining, and hand assembly</li>
+                        </ul>
+
+                        <h3>Skills Used</h3>
+                        <ul>
+                            <li>Acoustic engineering &amp; ISO testing</li>
+                            <li>CAD (SolidWorks), prototyping, and fabrication</li>
+                            <li>Python for simulation &amp; data analysis</li>
+                            <li>Collaboration with mechanical &amp; architectural designers</li>
+                        </ul>
+
+                        <div class="image-container">
+                            <img src="panel_front.jpeg" alt="Front view of acoustic panel" loading="lazy">
+                            <img src="diffusion_test.jpeg" alt="Diffusion testing setup" loading="lazy">
+                            <img src="absorption_graph.png" alt="RT60 experimental vs. theoretical" loading="lazy">
+                        </div>
+
+                        <h3>Impact</h3>
+                        <p>This project reflects a year of hands-on lab experience applying engineering principles to real-world testing and product design, bridging architectural form with mechanical function for dynamic sound control in public spaces.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 03 — Fixed-Wing Drone -->
+            <article class="project" id="fixed-wing-drone">
+                <div class="project-head">
+                    <span class="project-num">03</span>
+                    <div class="project-title"><h2>Fixed-Wing Drone Simulation using MAVSim</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> Cooper Union, NY</span>
+                            <span><b>dates</b> Spring 2025</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>Implemented a quaternion-based attitude representation for a fixed-wing UAV in a Python simulation environment. Using the MAVSim framework from BYU's MAGICC Lab, I simulated the full 6-DOF dynamics of a UAV and visualized key flight parameters.</p>
+
+                        <h3>Skills Used</h3>
+                        <ul>
+                            <li>Python programming for simulation</li>
+                            <li>Quaternion-based attitude representation</li>
+                            <li>Flight dynamics and control</li>
+                            <li>Data visualization with Matplotlib</li>
+                            <li>MAVSim framework for UAV modeling</li>
+                        </ul>
+
+                        <h3>Simulation Results</h3>
+                        <div class="media-container">
+                            <img src="mavsim_screenshot.png" alt="MAVSim flight simulation" loading="lazy">
+                            <img src="aircraft.png" alt="Aircraft simulation view" loading="lazy">
+                        </div>
+                        <video controls preload="none" poster="mavsim_screenshot.png">
+                            <source src="sim.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <h3>Key Contributions</h3>
+                        <ul>
+                            <li>Developed quaternion-based flight dynamics models</li>
+                            <li>Implemented state estimation techniques for UAV simulation</li>
+                            <li>Generated real-time plots of velocity, angles, and control inputs</li>
+                            <li>Designed a 3D visualization to clarify flight behavior</li>
+                        </ul>
+
+                        <h3>Next Steps</h3>
+                        <ul>
+                            <li>Implement reinforcement learning for flight control</li>
+                            <li>Test real-time path planning algorithms</li>
+                            <li>Integrate sensor fusion for accurate state estimation</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 04 — Open Channel Flow -->
+            <article class="project" id="open-channel-flow">
+                <div class="project-head">
+                    <span class="project-num">04</span>
+                    <div class="project-title"><h2>Open Channel Flow &amp; Nozzle Optimization — Published ASME Research</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> Cooper Union, NY</span>
+                            <span><b>dates</b> Fall 2022 – Spring 2025</span>
+                            <span><b>role</b> Researcher · Published Author</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>A year-long research project on open channel flows and nozzle optimization, culminating in the co-authored paper <em>"Workshops for Active Learning and the Draining Tank: A Low-Cost Thermal-Fluid Experiment,"</em> accepted to the ASME 2025 International Mechanical Engineering Congress &amp; Exposition (IMECE2025). The work integrated theory, lab experimentation, and CFD to analyze transient draining-tank behavior and flow losses through nozzle contractions.</p>
+
+                        <h3>Engineering Contributions</h3>
+                        <ul>
+                            <li>Developed and machined custom nozzles for experimental testing</li>
+                            <li>Ran CFD simulations of pressure, velocity, and loss coefficients across Reynolds regimes</li>
+                            <li>Validated results against Torricelli's Law, Bernoulli principles, and entropy-based flow models</li>
+                            <li>Led parametric studies on loss coefficients for varying geometries and flow rates using Python and ANSYS Fluent</li>
+                            <li>Collaborated with professors and Air Force Academy researchers on multi-modal teaching approaches</li>
+                        </ul>
+
+                        <h3>Skills Used</h3>
+                        <ul>
+                            <li>CFD (ANSYS Fluent), SolidWorks, Python for flow analysis</li>
+                            <li>Experimental design, high-speed imaging, pressure/velocity measurement</li>
+                            <li>Thermal-fluid modeling: Torricelli's Law, Reynolds Transport Theorem, entropy balance</li>
+                            <li>Scientific writing and technical presentation (ASME standards)</li>
+                        </ul>
+
+                        <div class="image-container">
+                            <img src="vena.png" alt="Nozzle geometry CFD pressure distribution" loading="lazy">
+                            <img src="vena2.png" alt="Velocity contours along centerline" loading="lazy">
+                            <img src="vena3.png" alt="Velocity contours along centerline" loading="lazy">
+                        </div>
+
+                        <h3>Impact</h3>
+                        <p>Beyond supporting curriculum redesign at Cooper Union through active-learning workshops, this gave me publication experience at a major engineering conference. My CFD and nozzle-design work served as an independent graduate-level study of complex fluid interactions in constrained geometries.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 05 — Autonomous Mobile Robot -->
+            <article class="project" id="autonomous-mobile-robot">
+                <div class="project-head">
+                    <span class="project-num">05</span>
+                    <div class="project-title"><h2>Autonomous Mobile Robot</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> Cooper Union, NY</span>
+                            <span><b>dates</b> Fall 2024</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>Designed and built an autonomous mobile robot for competitive robotics. Equipped with sensors and actuators to navigate a dynamic environment, avoid obstacles, and complete tasks like object detection and ball launching — optimized for mobility, accuracy, and reliability under varied conditions.</p>
+
+                        <h3>Skills Used</h3>
+                        <ul>
+                            <li>CAD design with SolidWorks and Autodesk</li>
+                            <li>Arduino programming for robotics control</li>
+                            <li>Sensor integration (ultrasonic, IR)</li>
+                            <li>3D printing for custom components</li>
+                            <li>Motor control with L298N driver</li>
+                            <li>System integration across sensors and actuators</li>
+                        </ul>
+
+                        <div class="image-container">
+                            <img src="AMR.png" alt="Robot side view" loading="lazy">
+                            <img src="arduino.png" alt="Arduino control wiring" loading="lazy">
+                            <img src="elec.png" alt="Electronics layout" loading="lazy">
+                            <img src="launcher.png" alt="Ball launcher mechanism" loading="lazy">
+                        </div>
+
+                        <video controls preload="none" poster="AMR.png">
+                            <source src="robot_demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <h3>Description</h3>
+                        <p>The robot uses a clear acrylic frame powered by 12V brushed DC motors, with an array of ultrasonic and IR sensors for obstacle detection and environmental awareness. Its central task is launching ping-pong balls via a spring-plunger mechanism triggered by a solenoid, through a custom 3D-printed barrel. An Arduino UNO processes sensor data and drives the motors and solenoid.</p>
+
+                        <h3>Key Contributions</h3>
+                        <ul>
+                            <li>Designed the frame in SolidWorks; fabricated via laser cutting and 3D printing</li>
+                            <li>Built the drive system with custom motor mounts and high-traction wheels</li>
+                            <li>Integrated an ultrasonic + IR sensor array for obstacle avoidance and target detection</li>
+                            <li>Programmed the Arduino to handle sensor input, drive control, and the launcher</li>
+                            <li>Created a sensor-mount system for reliable readings and reduced clutter</li>
+                            <li>Tested across scenarios for robustness and reliability</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 06 — Strain DIC -->
+            <article class="project" id="strain-stress-dic">
+                <div class="project-head">
+                    <span class="project-num">06</span>
+                    <div class="project-title"><h2>Tracking Strain in Stress Concentration Using Digital Image Correlation</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> Cooper Union, NY</span>
+                            <span><b>dates</b> Spring 2024</span>
+                            <span><b>role</b> ME Researcher</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>Experimental stress analysis using Digital Image Correlation (DIC) to validate theoretical stress-concentration data. The goal was to track strain distribution around concentration points — such as holes in engineering components — using high-resolution imaging and DIC software.</p>
+
+                        <h3>Skills Used</h3>
+                        <ul>
+                            <li>SolidWorks for CAD and FEM analysis</li>
+                            <li>MATLAB for data processing and contour plotting</li>
+                            <li>Digital Image Correlation (DIC) techniques</li>
+                            <li>Instron testing for tensile loading</li>
+                            <li>Experimental setup and data collection with VIC-3D</li>
+                        </ul>
+
+                        <h3>Description</h3>
+                        <p>Used DIC to analyze strain distribution around stress-concentration areas in aluminum samples. Specimens were loaded in a tensile machine while observed with a high-resolution stereo camera, then strain data was compared with theoretical and simulation results to identify deviations and refine procedures.</p>
+
+                        <div class="image-container">
+                            <img src="strain_dic_experiment1.jpg" alt="DIC experiment image 1" loading="lazy">
+                            <img src="strain_dic_experiment2.jpg" alt="DIC experiment image 2" loading="lazy">
+                            <img src="strain_dic_experiment3.png" alt="DIC experiment image 3" loading="lazy">
+                            <img src="strain_dic_experiment4.jpg" alt="DIC experiment image 4" loading="lazy">
+                            <img src="strain_dic_experiment5.jpg" alt="DIC experiment image 5" loading="lazy">
+                        </div>
+
+                        <h3>Key Contributions</h3>
+                        <ul>
+                            <li>Tested aluminum 6061 samples with applied speckle patterns for DIC</li>
+                            <li>Used an Instron tensile machine for loading while recording via VIC-3D</li>
+                            <li>Processed strain data in MATLAB into detailed stress-concentration contour plots</li>
+                            <li>Compared experimental results against theoretical models and FEM simulations</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 07 — Motor Research -->
+            <article class="project" id="motor-research">
+                <div class="project-head">
+                    <span class="project-num">07</span>
+                    <div class="project-title"><h2>Condition Monitoring of Induction Motors with Vibration Signals &amp; ML</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> TU Dresden, Germany</span>
+                            <span><b>dates</b> Summer 2023</span>
+                            <span><b>role</b> Mechatronics Researcher</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>Led the development and execution of research protocols aimed at improving the reliability and performance of electric motors using advanced analytics and machine learning. Presented findings at the NCUR conference (Long Beach, CA).</p>
+
+                        <div class="image-container">
+                            <img src="motor.png" alt="Research induction motors" loading="lazy">
+                            <img src="parts_motor.png" alt="Motor parts" loading="lazy">
+                            <img src="decision_tree.png" alt="Decision tree model" loading="lazy">
+                            <img src="data_collecting.png" alt="Data collection setup" loading="lazy">
+                            <img src="confusion matrix.png" alt="Classification confusion matrix" loading="lazy">
+                        </div>
+
+                        <h3>Key Contributions</h3>
+                        <ul>
+                            <li>Designed experimental setups in SolidWorks to optimize weight distribution and accuracy</li>
+                            <li>Collaborated with cross-functional teams for robust data collection and analysis</li>
+                            <li>Built data-processing tools and interfaces in Node.js and Node-RED</li>
+                            <li>Created a Python machine-learning framework to detect early signs of motor failure from vibration data</li>
+                            <li>Developed a predictive model that classifies motor failures, improving reliability metrics</li>
+                            <li>Presented "Condition Monitoring of Induction Motor Using Vibration Signals and Machine Learning Classification" at NCUR</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 08 — Sumo Robot -->
+            <article class="project" id="sumo-robot">
+                <div class="project-head">
+                    <span class="project-num">08</span>
+                    <div class="project-title"><h2>Sumo Robot</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> Cooper Union, NY</span>
+                            <span><b>dates</b> Spring 2024</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>Designed a competition sumo robot within strict design constraints, using CAD tools and Python programming.</p>
+
+                        <div class="image-container">
+                            <img src="front_mechatronics_sumo.png" alt="Sumo robot front view" loading="lazy">
+                            <img src="back_mechatronics_sumo.png" alt="Sumo robot back view" loading="lazy">
+                            <img src="real_sumo.JPEG" alt="Assembled sumo robot" loading="lazy">
+                        </div>
+
+                        <video controls preload="none" poster="real_sumo.JPEG">
+                            <source src="video 2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <h3>Key Contributions</h3>
+                        <ul>
+                            <li>Integrated IR sensors and solenoids for tactical interactions in the arena</li>
+                            <li>Collaborated with a team to optimize mechanical and electronic components</li>
+                            <li>Applied diagnostic skills to troubleshoot and repair system failures</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 09 — Drone Swarm -->
+            <article class="project" id="drone-swarm">
+                <div class="project-head">
+                    <span class="project-num">09</span>
+                    <div class="project-title"><h2>Drone Monitoring &amp; Control (Swarm)</h2></div>
+                    <span class="project-toggle">+</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-body-inner">
+                        <div class="meta">
+                            <span><b>loc</b> Cooper Union, NY</span>
+                            <span><b>dates</b> Fall 2021 – Spring 2022</span>
+                            <span><b>role</b> Student Researcher</span>
+                        </div>
+
+                        <h3>Project Overview</h3>
+                        <p>Implemented a drone-swarm control system using ROS, Linux, and Python, enabling synchronized operation of multiple drones for collaborative tasks.</p>
+
+                        <video controls preload="none">
+                            <source src="drone_swarm_video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <h3>Key Contributions</h3>
+                        <ul>
+                            <li>Used Vicon cameras and open-source drone tech to monitor and analyze swarm motion</li>
+                            <li>Developed algorithms for autonomous decision-making and obstacle avoidance</li>
+                            <li>Performed maintenance and updates on drone hardware and software</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>© 2026 Aymane Saissi · All rights reserved</span>
+            <a href="mailto:aymanexsaissi@gmail.com">aymanexsaissi@gmail.com</a>
         </div>
-    </section>
-    <!-- Fixed-Wing Drone Simulation Project -->
-    <section id="fixed-wing-drone">
-        <h2>Fixed-Wing Drone Simulation using MAVSim</h2>
-        <button onclick="toggleSection('fixed-wing-drone-content')">Show Details</button>
-        <div id="fixed-wing-drone-content" class="content" style="display: none;">
-            <p><strong>Location:</strong> Cooper Union, New York, NY</p>
-            <p><strong>Duration:</strong> Spring 2025</p>
-    
-            <h3>Project Overview</h3>
-            <p>This project implements a quaternion-based attitude representation for a fixed-wing UAV in a Python-based simulation environment. Using the MAVSim framework from BYU MAGICC Lab, I simulated the full 6-DOF dynamics of an unmanned aerial vehicle (UAV) and visualized key flight parameters.</p>
-    
-            <h3>Skills Used</h3>
-            <ul>
-                <li>Python programming for simulation</li>
-                <li>Quaternion-based attitude representation</li>
-                <li>Flight dynamics and control</li>
-                <li>Data visualization using Matplotlib</li>
-                <li>MAVSim framework for UAV modeling</li>
-            </ul>
-    
-            <h3>Simulation Results</h3>
-            <div class="media-container">
-                <img src="mavsim_screenshot.png" alt="MAVSim Flight Simulation">
-                <video width="320" height="240" controls>
-                    <source src="sim.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <img src="aircraft.png" alt="Additional Simulation Image">
-            </div>
-    
-            <h3>Project Description</h3>
-            <p>The simulation implements quaternion-based attitude control, providing stable and accurate UAV orientation calculations. The visualization includes trajectory plotting, real-time state estimation, and performance analysis through multiple data plots.</p>
-    
-            <h3>Key Contributions</h3>
-            <ul>
-                <li>Developed quaternion-based flight dynamics models.</li>
-                <li>Implemented state estimation techniques for UAV simulation.</li>
-                <li>Generated real-time plots of velocity, angles, and control inputs.</li>
-                <li>Designed a 3D visualization for better understanding of flight behavior.</li>
-            </ul>
-            
-            <h3>Next Steps</h3>
-            <ul>
-                <li>Implement Reinforcement Learning for Flight Control</li>
-                <li>Test Real-Time Path Planning Algorithms</li>
-                <li>Integrate Sensor Fusion for Accurate State Estimation</li>
-            </ul>
-        </div>
-    </section>
-
-    
-    <!-- Open Channel Flow Research Project -->
-    <section id="open-channel-flow">
-        <h2>Open Channel Flow & Nozzle Optimization – Published ASME Research</h2>
-        <button onclick="toggleSection('open-channel-flow-content')">Show Details</button>
-        <div id="open-channel-flow-content" class="content" style="display: none;">
-            <p><strong>Location:</strong> Cooper Union, New York, NY</p>
-            <p><strong>Duration:</strong> Fall 2022 – Spring 2025</p>
-            <p><strong>Role:</strong> Lab Researcher & CFD Contributor (Published Author)</p>
-            
-            <h3>Project Overview</h3>
-            <p>Conducted a year-long research project on open channel flows and nozzle optimization, culminating in the co-authored paper <em>“Workshops for Active Learning and the Draining Tank”</em>, accepted to the ASME 2025 International Mechanical Engineering Congress & Exposition (IMECE2025). This work integrated theory, lab experimentation, and CFD simulation to analyze transient draining tank behavior and flow losses through nozzle contractions.</p>
-    
-            <h3>Engineering Contributions</h3>
-            <ul>
-                <li>Developed custom nozzles for experimental testing and fabricated them in the machine shop</li>
-                <li>Conducted independent CFD simulations to analyze pressure, velocity, and loss coefficients across Reynolds regimes</li>
-                <li>Validated experimental results against Torricelli Law, Bernoulli principles, and entropy-based flow models</li>
-                <li>Led parametric studies on loss coefficients for varying geometries and flow rates using Python and ANSYS Fluent</li>
-                <li>Collaborated with professors and Air Force Academy researchers to integrate multi-modal teaching approaches (lecture, workshop, lab)</li>
-            </ul>
-    
-            <h3>Skills Used</h3>
-            <ul>
-                <li>CFD (ANSYS Fluent), SolidWorks, Python for flow analysis and visualization</li>
-                <li>Experimental design, high-speed imaging, pressure and velocity measurements</li>
-                <li>Thermal-fluid modeling: Torricelli Law, Reynolds Transport Theorem, entropy balance</li>
-                <li>Scientific writing and technical presentation (ASME standards)</li>
-            </ul>
-    
-            <h3>Media & Simulation Results</h3>
-            <div class="image-container">
-                <img src="vena.png" alt="Nozzle Geometry CFD Pressure Distribution">
-                <img src="vena2.png" alt="Velocity Contours Along Centerline">
-                <img src="vena3.png" alt="Velocity Contours Along Centerline">
-            </div>
-
-    
-            <h3>Impact</h3>
-            <p>This project not only supported curriculum redesign at Cooper Union using active-learning workshops but also gave me publication experience at a major engineering conference. My contribution to the CFD simulations and nozzle design served as an independent graduate-level study on complex fluid interactions in constrained geometries.</p>
-        </div>
-    </section>
-
-    <!-- Autonomous Mobile Robot Research Project -->
-    <section id="autonomous-mobile-robot">
-        <h2>Autonomous Mobile Robot Research Project</h2>
-        <button onclick="toggleSection('autonomous-mobile-robot-content')">Show Details</button>
-        <div id="autonomous-mobile-robot-content" class="content" style="display: none;">
-            <p><strong>Location:</strong> Cooper Union, New York, NY</p>
-            <p><strong>Duration:</strong> Fall 2024</p>
-            
-            <h3>Project Overview</h3>
-            <p>This project involves the design and development of an autonomous mobile robot intended for competitive robotics applications. The robot is equipped with sensors and actuators to navigate a dynamic environment, avoid obstacles, and complete specific tasks such as object detection and ball launching. The goal is to optimize the robot's performance in mobility, accuracy, and reliability under various operational conditions.</p>
-    
-            <h3>Skills Used</h3>
-            <ul>
-                <li>CAD Design with SolidWorks and Autodesk</li>
-                <li>Arduino programming for robotics control</li>
-                <li>Sensor integration (Ultrasonic, IR sensors)</li>
-                <li>3D printing for custom components</li>
-                <li>Motor control with L298N motor driver</li>
-                <li>System integration for efficient communication between sensors and actuators</li>
-            </ul>
-    
-            <h3>System Design and Media</h3>
-            <div class="image-container">
-                <!-- Replace with actual images of robot design -->
-                <img src="AMR.png" alt="Side View of the Robot">
-                <img src="arduino.png" alt="Top View of the Robot">
-                <img src="elec.png" alt="Top View of the Robot">
-                <img src="launcher.png" alt="Top View of the Robot">
-            </div>
-    
-            <video width="100%" controls>
-                <source src="robot_demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-    
-            <h3>Project Description</h3>
-            <p>The autonomous robot is designed with a clear acrylic frame and is powered by 12V brushed DC motors. The robot features an array of ultrasonic and infrared sensors for obstacle detection and environmental awareness. The central task of the robot is to launch ping-pong balls using a spring plunger mechanism, activated by a solenoid. A custom 3D-printed barrel is used to launch the balls with precision. The robot is controlled by an Arduino UNO, which processes sensor data and sends commands to the motors and solenoid for action.</p>
-    
-            <h3>Key Contributions</h3>
-            <ul>
-                <li>Designed the robot frame using SolidWorks and fabricated components using laser cutting and 3D printing techniques.</li>
-                <li>Developed the drive system utilizing custom motor mounts and high-traction wheels for stable movement.</li>
-                <li>Integrated a sensor array, consisting of ultrasonic and IR sensors, to enable obstacle avoidance and target detection.</li>
-                <li>Programmed the Arduino to handle sensor input, control the drive motors, and trigger the ping-pong ball launcher.</li>
-                <li>Created a sensor mount system to reduce external clutter and ensure reliable sensor readings.</li>
-                <li>Tested the robot's functionality in various scenarios to ensure robustness and reliability in the field.</li>
-            </ul>
-        </div>
-    </section>
-    
-
-    <!-- Tracking Strain in Stress Concentration Project -->
-    <section id="strain-stress-dic">
-        <h2>Tracking Strain in Stress Concentration Using Digital Image Correlation</h2>
-        <button onclick="toggleSection('strain-stress-dic-content')">Show Details</button>
-        <div id="strain-stress-dic-content" class="content" style="display: none;">
-            <p><strong>Location:</strong> Cooper Union, New York, NY</p>
-            <p><strong>Duration:</strong> Spring 2024</p>
-            <p><strong>Role:</strong> Mechanical Engineering Researcher</p>
-
-            <h3>Project Overview</h3>
-            <p>This project focuses on experimental stress analysis using Digital Image Correlation (DIC) to validate theoretical stress concentration data. It aims to track strain distribution around stress concentration points, such as holes in engineering components, using high-resolution imaging and DIC software.</p>
-
-            <h3>Skills Used</h3>
-            <ul>
-                <li>SolidWorks for CAD and FEM analysis</li>
-                <li>MATLAB for data processing and contour plotting</li>
-                <li>Digital Image Correlation (DIC) techniques</li>
-                <li>Instron testing for tensile loading</li>
-                <li>Experimental setup and data collection using VIC-3D software</li>
-            </ul>
-
-            <h3>Project Description</h3>
-            <p>In this project, the team used DIC technology to analyze the strain distribution around stress concentration areas in aluminum samples. The samples were tested in a tensile machine while being observed with a high-resolution stereo camera. The strain data was compared with theoretical and simulation results to identify deviations and optimize experimental procedures.</p>
-
-            <h3>Media and Results</h3>
-            <div class="image-container">
-                <img src="strain_dic_experiment1.jpg" alt="DIC Experiment Image 1">
-                <img src="strain_dic_experiment2.jpg" alt="DIC Experiment Image 2">
-                <img src="strain_dic_experiment3.png" alt="DIC Experiment Image 2">
-                <img src="strain_dic_experiment4.jpg" alt="DIC Experiment Image 2">
-                <img src="strain_dic_experiment5.jpg" alt="DIC Experiment Image 2">
-            </div>
-
-
-
-            <h3>Key Contributions</h3>
-            <ul>
-                <li>Conducted experimental tests using aluminum 6061 samples and applied speckle patterns for DIC.</li>
-                <li>Used Instron tensile machine for sample loading while recording strain data through VIC-3D software.</li>
-                <li>Processed strain data in MATLAB to create detailed contour plots of stress concentration.</li>
-                <li>Compared experimental results with theoretical models and FEM simulations to validate findings.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Motor Research Project -->
-    <section id="motor-research">
-        <h2>Condition Monitoring of Induction Motor Using Vibration Signals and Machine Learning Classification</h2>
-        <button onclick="toggleSection('motor-research-content')">Show Details</button>
-        <div id="motor-research-content" class="content" style="display: none;">
-            <div class="image-container">
-                <img src="motor.png" alt="Research Induction Motors">
-                <img src="parts_motor.png" alt="Research Induction Motors2">
-                <img src="decision_tree.png" alt="Research Induction Motors4">
-                <img src="data_collecting.png" alt="Research Induction Motors3">
-                <img src="confusion matrix.png" alt="Research Induction Motors5">
-            <div>
-            <p><strong>Location:</strong> Technische Universität Dresden, Dresden, Germany</p>
-            <p><strong>Duration:</strong> Summer 2023</p>
-            <p><strong>Role:</strong> Mechatronics Engineering Researcher</p>
-            <p><strong>Project Description:</strong> Led the development and execution of research protocols aimed at enhancing the reliability and performance of electric motors using advanced analytical and machine learning techniques.</p>
-            <ul>
-                <li>Designed experimental setups using SolidWorks to optimize weight distribution and ensure experimental accuracy.</li>
-                <li>Collaborated with cross-functional teams to ensure comprehensive data collection and robust analysis.</li>
-                <li>Developed software tools in Node.js and Node-Red for data processing and user interface improvements, enhancing operational efficiency.</li>
-                <li>Created a pioneering machine learning framework in Python to detect early signs of electric motor failure from vibration data.</li>
-                <li>Contributed to building a predictive model that classifies motor failures, significantly improving reliability and performance metrics.</li>
-                <li>Presented findings at the NCUR conference in Los Angeles on "Condition Monitoring of Induction Motor Using Vibration Signals and Machine Learning Classification".</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Sumo Robot Project -->
-    <section id="sumo-robot">
-        <h2>Sumo Robot Project</h2>
-        <button onclick="toggleSection('sumo-robot-content')">Show Details</button>
-        <div id="sumo-robot-content" class="content" style="display: none;">
-            <div class="image-container">
-                <img src="front_mechatronics_sumo.png" alt="Sumo Robot Front View">
-                <img src="back_mechatronics_sumo.png" alt="Sumo Robot Back View">
-                <img src="real_sumo.JPEG" alt="Real Sumo">
-            </div>
-            
-            <video width="100%" controls>
-                <source src="video 2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
-            <p><strong>Location:</strong> The Cooper Union, New York, NY</p>
-            <p><strong>Duration:</strong> Spring 2024</p>
-            <p><strong>Description:</strong> Designed a sumo robot capable of competing by adhering to specific design constraints, utilizing CAD tools, and programming with Python.</p>
-            <ul>
-                <li>Integrated IR sensors and solenoids for tactical interactions within the competition arena.</li>
-                <li>Collaborated with a team to optimize mechanical and electronic components.</li>
-                <li>Applied diagnostic skills to troubleshoot and repair system failures.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Drone Swarm Project -->
-    <section id="drone-swarm">
-        <h2>Drone Monitoring and Control (Swarm)</h2>
-        <button onclick="toggleSection('drone-swarm-content')">Show Details</button>
-        <div id="drone-swarm-content" class="content" style="display: none;">
-            <video width="100%" controls>
-                <source src="drone_swarm_video.mp4" type="video/mp4">
-            </video>
-            <p><strong>Location:</strong> Cooper Union, New York, NY</p>
-            <p><strong>Duration:</strong> Fall 2021 - Spring 2022</p>
-            <p><strong>Role:</strong> Student Researcher</p>
-            <p><strong>Project Description:</strong> Implemented a drone swarm control system using ROS, Linux, and Python, enabling synchronized operation of multiple drones for collaborative tasks.</p>
-            <ul>
-                <li>Utilized Vicon cameras and open-source drone technology to monitor and analyze the motion of the drone swarm.</li>
-                <li>Developed algorithms for autonomous decision-making and obstacle avoidance.</li>
-                <li>Performed maintenance and updates on drone hardware and software.</li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <p>Copyright © 2024 Aymane Saissi. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

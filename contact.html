@@ -3,29 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Aymane Saissi</title>
+    <title>Contact — Aymane Saissi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Contact</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="resume.html">Resume</a></li>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a href="index.html" class="brand"><span class="slash">/</span>aymane.saissi<span class="cursor"></span></a>
+            <button class="nav-toggle" aria-label="Toggle menu">menu</button>
+            <ul class="nav-links">
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="contact.html" class="active">contact</a></li>
+                <li><a href="resume.html">resume</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    <section>
-        <h2>Email Me</h2>
-        <p>You can email me at <a href="mailto:aymanexsaisi@gmail.com">aymanexsaissi@gmail.com</a></p>
-        <h2>LinkedIn</h2>
-        <p>Connect with me on <a href="http://linkedin.com/in/aymane-saissi-658b7427b">LinkedIn</a>.</p>
-    </section>
-    <footer>
-        <p>Copyright © 2024 Aymane Saissi</p>
+
+    <main>
+        <section class="section reveal" style="border-bottom:none;">
+            <span class="kicker">Get in touch</span>
+            <h2>Let's build something</h2>
+            <p>Open to opportunities in robotics, autonomous systems, and mechanical R&amp;D — as well as research collaborations. The fastest way to reach me is email.</p>
+
+            <div class="contact-links">
+                <a class="contact-card" href="mailto:aymanexsaissi@gmail.com">
+                    <span class="co-label">// email</span>
+                    <span class="co-value">aymanexsaissi@gmail.com</span>
+                </a>
+                <a class="contact-card" href="https://www.linkedin.com/in/aymane-saissi-658b7427b" target="_blank" rel="noopener">
+                    <span class="co-label">// linkedin</span>
+                    <span class="co-value">in/aymane-saissi</span>
+                </a>
+                <a class="contact-card" href="https://github.com/Aymane-18" target="_blank" rel="noopener">
+                    <span class="co-label">// github</span>
+                    <span class="co-value">@Aymane-18</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>© 2026 Aymane Saissi</span>
+            <a href="mailto:aymanexsaissi@gmail.com">aymanexsaissi@gmail.com</a>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

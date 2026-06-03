@@ -3,64 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aymane Saissi's Portfolio</title>
+    <title>Aymane Saissi — Mechanical Engineer · CFD &amp; Robotics</title>
+    <meta name="description" content="Portfolio of Aymane Saissi — PhD candidate in Mechanical Engineering at the University of Cambridge. Computational fluid dynamics, autonomous systems, robotics, and machine learning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header>
-        <h1>Aymane Saissi</h1>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="resume.html">Resume</a></li>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a href="index.html" class="brand"><span class="slash">/</span>aymane.saissi<span class="cursor"></span></a>
+            <button class="nav-toggle" aria-label="Toggle menu">menu</button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">home</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li><a href="resume.html">resume</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    
+
     <main>
-        <section class="introduction">
-            <h2>Welcome to My Professional Portfolio</h2>
-            <p>This portfolio showcases my projects and achievements in Mechanical Engineering and Robotics.</p>
+        <section class="hero">
+            <div class="hero-text reveal">
+                <span class="kicker">Mechanical Engineering · CFD · Robotics</span>
+                <h1 class="hero-name">Aymane <span>Saissi</span></h1>
+                <p class="hero-role">PhD candidate &amp; computational engineer<span class="blink">_</span></p>
+                <p class="hero-lede">Mechanical engineer working at the intersection of hardware, control, and computation — from real-fluid CFD solvers to autonomous robots. Currently pursuing a PhD at the University of Cambridge.</p>
+
+                <div class="spec-block">
+                    <div><span class="k">origin</span> <span class="v">Rabat, Morocco</span></div>
+                    <div><span class="k">now</span> <span class="v">PhD candidate · University of Cambridge, UK</span></div>
+                    <div><span class="k">focus</span> <span class="v">computational fluid dynamics · autonomous systems · ML</span></div>
+                    <div><span class="k">langs</span> <span class="v">French · Arabic · English (fluent) · Spanish</span></div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="projects.html" class="btn btn-primary">view projects <span class="arrow">→</span></a>
+                    <a href="contact.html" class="btn">get in touch</a>
+                </div>
+            </div>
+
+            <div class="portrait reveal">
+                <img src="profile.jpeg" alt="Aymane Saissi">
+                <span class="frame-tag">// A.SAISSI · CAMBRIDGE</span>
+            </div>
         </section>
-        
-        <section class="about">
-            <h2>About Me</h2>
-            
-            <!-- Add a profile picture -->
-            <img src="profile.jpeg" alt="Aymane Saissi" style="width:150px; height:auto; border-radius:50%; margin: 10px auto; display: block;">
-            
-            <p>Hello! I'm Aymane, a passionate mechanical engineer and robotics enthusiast with a love for solving complex problems. My journey began in <strong>Rabat, Morocco</strong>, and has taken me all the way to <strong>Manhattan, New York</strong>, where I am pursuing innovative solutions to real-world challenges through <strong>machine learning</strong> and <strong>robotics</strong>.</p>
-            
-            <!-- Subsections with headers to make it more scannable -->
-            <h3>My Background</h3>
-            <p>I grew up immersed in a blend of French and Moroccan cultures, which helped shape my curiosity and adaptability. I mastered three languages—French, Arabic, and English—and learning them help me understand the diversity and wealth of different cultures! Alongside language learning, I developed a strong foundation in <strong>engineering</strong>, particularly mechanical systems and robotics.</p>
 
-            <h3>Passion for Innovation</h3>
-            <p>I am passionate about the development of autonomous systems that can optimize their functions based on real-time data, particularly in fields like predictive maintenance, precision agriculture, and search-and-rescue. My aim is to push the boundaries of adaptive, intelligent systems to make a positive impact in both local and global contexts.</p>
+        <section class="section reveal">
+            <span class="kicker">01 — About</span>
+            <h2>Engineering across cultures &amp; disciplines</h2>
+            <p>I grew up immersed in a blend of French and Moroccan cultures, which shaped my curiosity and adaptability. Speaking French, Arabic, and English fluently taught me to value diverse perspectives — and alongside language I built a strong foundation in engineering, particularly mechanical systems, fluid dynamics, and robotics.</p>
 
-            <!-- Highlight key skills with icons or bold text for clarity -->
-            <h3>Skills & Expertise</h3>
-            <ul>
-                <li><strong>Programming Languages:</strong> Python, C++, MATLAB</li>
-                <li><strong>Tools & Technologies:</strong> ROS, SolidWorks, Vicon, Node.js, Siemens NX, Onshape, Microchip Studio, MPLAB X IDE, Ansys</li>
-                <li><strong>Fabrication Skills:</strong> 3D Printing, basic wood construction, Soldering</li>
-                <li><strong>Languages Spoken:</strong> English, French, Arabic, Spanish</li>
-            </ul>
+            <h3>Passion for innovation</h3>
+            <p>I'm drawn to systems that model the physical world and act on it autonomously — from compressible, phase-changing flows in nozzles to robots that optimize their behavior from real-time data. My aim is to push adaptive, intelligent systems toward meaningful impact in both local and global contexts.</p>
+
+            <h3>From research to industry</h3>
+            <p>I graduated from The Cooper Union with a B.E. in Mechanical Engineering (GPA 3.99/4.0) and a co-authored ASME publication, then spent a year as a Co-op Engineer at Con Edison building Python automation and Power BI analytics for utility operations in New York. I'm now continuing that path as a PhD researcher at Cambridge.</p>
 
             <h3>Vision</h3>
-            <p>I aim to bridge gaps between technology and society. Whether it's automating healthcare systems or building smarter, sustainable technologies, I believe engineering can bring meaningful change. From rural villages in Morocco to bustling cities in the U.S., I'm excited to use my skills to make a positive impact.</p>
-            
-            <!-- Add a subtle call-to-action (CTA) -->
-            <p>Take a look at my <a href="projects.html">projects</a> to see how I apply these skills to real-world challenges!</p>
+            <p>I want to bridge the gap between technology and society. Whether it's high-fidelity simulation, automating healthcare systems, or building smarter sustainable hardware, I believe engineering can drive real change — from rural villages in Morocco to the streets of New York and the labs of Cambridge.</p>
         </section>
 
+        <section class="section reveal">
+            <span class="kicker">02 — Education</span>
+            <h2>Education</h2>
+            <div class="edu">
+                <div class="edu-item">
+                    <div class="edu-when">2025 — Present</div>
+                    <div class="edu-what">
+                        <strong>University of Cambridge</strong> — Cambridge, UK
+                        <span>PhD, Mechanical Engineering</span>
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-when">2021 — 2025</div>
+                    <div class="edu-what">
+                        <strong>The Cooper Union for the Advancement of Science and Art</strong> — New York, NY
+                        <span>B.E. Mechanical Engineering · GPA 3.99 / 4.0 · Dean's List (all semesters)</span>
+                        <span>Tau Beta Pi Engineering Honor Society · Innovator Merit &amp; Full-Tuition Scholarships</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <span class="kicker">03 — Capabilities</span>
+            <h2>Skills &amp; expertise</h2>
+            <div class="skill-grid">
+                <div class="skill-row">
+                    <div class="label">// programming</div>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">C++ (17)</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">// cad &amp; design</div>
+                    <div class="tags">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">Siemens NX</span>
+                        <span class="tag">Onshape</span>
+                        <span class="tag">Autodesk</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">// simulation</div>
+                    <div class="tags">
+                        <span class="tag">Ansys Fluent</span>
+                        <span class="tag">Finite-Volume CFD</span>
+                        <span class="tag">OpenMP</span>
+                        <span class="tag">ROS</span>
+                        <span class="tag">Vicon</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">// dev &amp; tools</div>
+                    <div class="tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">CMake</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Node-RED</span>
+                        <span class="tag">Power BI</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">// fabrication</div>
+                    <div class="tags">
+                        <span class="tag">3D Printing</span>
+                        <span class="tag">Soldering</span>
+                        <span class="tag">Laser Cutting</span>
+                        <span class="tag">CNC Machining</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="label">// languages</div>
+                    <div class="tags">
+                        <span class="tag">French</span>
+                        <span class="tag">Arabic</span>
+                        <span class="tag">English</span>
+                        <span class="tag">Spanish (beginner)</span>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top:32px;">Take a look at my <a href="projects.html">projects</a> to see how these come together on real-world challenges.</p>
+        </section>
     </main>
-    
-    <footer>
-        <p>Contact me at <a href="mailto:aymanexsaissi@gmail.com">aymanexsaissi@gmail.com</a></p>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>© 2026 Aymane Saissi</span>
+            <a href="mailto:aymanexsaissi@gmail.com">aymanexsaissi@gmail.com</a>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
